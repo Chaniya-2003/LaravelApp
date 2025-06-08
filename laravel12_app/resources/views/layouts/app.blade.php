@@ -16,7 +16,7 @@
             text-align: center;
             font-size: 30px;
             font-weight: bold;
-            color: #28a745; /* Bootstrap success green */
+            color: #28a745; 
             margin-top: 2.5remrem;
         }
     </style>
@@ -24,29 +24,34 @@
 <body class="bg-black text-white">
 
     <div id="app">
-        <!-- Top-Centered Title -->
+        
         <div class="app-title">
             🧑‍🎓Student App
         </div>
 
         <!-- Navbar -->
-        <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top px-4 py-2"> -->
+        
             <div class="container-fluid d-flex justify-content-between align-items-center">
-                <!-- Right Side (Auth Links) -->
+            
                 <div class="ms-auto d-flex align-items-center">
-                    @auth
-                        <form method="POST" action="{{ route('logout') }}" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-light btn-sm me-2">
-                                🔓 Logout
-                            </button>
-                        </form>
-                    @endauth
+                   @auth
+    <a href="{{ route('profile.edit') }}" class="btn btn-outline-info btn-sm me-2">
+        👤 Profile
+    </a>
+
+    <form method="POST" action="{{ route('logout') }}" class="d-inline">
+        @csrf
+        <button type="submit" class="btn btn-outline-light btn-sm me-2">
+            🔓 Logout
+        </button>
+    </form>
+@endauth
+
                 </div>
             </div>
         </nav>
 
-        <!-- Page Content -->
+       
         <main class="py-4 container">
             @yield('content')
         </main>

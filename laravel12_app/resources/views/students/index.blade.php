@@ -53,7 +53,7 @@
         text-decoration: none;
     }
 
-    /* Alert Success */
+    
     .alert-success {
         background: rgba(0, 255, 255, 0.15);
         border: 1px solid #00ffff;
@@ -63,7 +63,6 @@
         border-radius: 0.6rem;
     }
 
-    /* Table Styles */
     table {
         border-collapse: separate !important;
         border-spacing: 0 10px !important;
@@ -115,7 +114,7 @@
         white-space: nowrap;
     }
 
-    /* Buttons inside table */
+  
     .btn-outline-info, 
     .btn-outline-warning, 
     .btn-outline-danger {
@@ -158,7 +157,7 @@
         box-shadow: 0 0 15px #ff4d4d;
     }
 
-    /* Pagination */
+    
     .pagination {
         justify-content: flex-end !important;
         margin-top: 1.5rem;
@@ -180,7 +179,7 @@
         box-shadow: 0 0 10px #00ffff;
     }
 
-    /* Responsive tweaks */
+
     @media (max-width: 576px) {
         .page-header {
             flex-direction: column;

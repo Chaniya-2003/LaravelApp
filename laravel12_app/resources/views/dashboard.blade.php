@@ -40,7 +40,6 @@
         text-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
     }
 
-    /* Neon glass style button for Login and Register */
     .btn-neon {
         background-color: transparent;
         border: 2px solid #00ffff;
@@ -93,14 +92,19 @@
     <h1>Welcome to the Student Recorder App</h1>
 
     @auth
-        <p>You are logged in as <strong>{{ auth()->user()->name }}</strong>.</p>
-        <a href="{{ route('students.index') }}" class="btn btn-neon">Go to Dashboard</a>
+    <p>You are logged in as <strong>{{ auth()->user()->name }}</strong>.</p>
 
-        <form method="POST" action="{{ route('logout') }}" class="d-inline ms-3">
-            @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
-    @endauth
+    <a href="{{ route('students.index') }}" class="btn btn-neon">Go to Dashboard</a>
+
+    <a href="{{ route('profile.edit') }}" class="btn btn-neon ms-3">Profile</a>
+
+    <form method="POST" action="{{ route('logout') }}" class="d-inline ms-3">
+        @csrf
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+@endauth
+
+
 
     @guest
         <a href="{{ route('login') }}" class="btn btn-neon">Login</a>

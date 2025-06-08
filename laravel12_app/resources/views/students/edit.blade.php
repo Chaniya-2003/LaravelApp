@@ -94,14 +94,13 @@
         </a>
     </div>
 
-    <!-- Glass Styled Edit Form -->
+    
     <div class="card glass-card text-light rounded-4">
         <div class="card-body">
             <form action="{{ route('students.update', $student->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
-                <!-- Name -->
                 <div class="mb-3">
                     <label class="form-label">👤 Name</label>
                     <input type="text" name="name"
@@ -112,7 +111,6 @@
                     @enderror
                 </div>
 
-                <!-- Email -->
                 <div class="mb-3">
                     <label class="form-label">📧 Email</label>
                     <input type="email" name="email"
@@ -123,7 +121,7 @@
                     @enderror
                 </div>
 
-                <!-- Phone -->
+             
                 <div class="mb-3">
                     <label class="form-label">📱 Phone</label>
                     <input type="text" name="phone"
@@ -134,7 +132,6 @@
                     @enderror
                 </div>
 
-                <!-- Age -->
                 <div class="mb-3">
                     <label class="form-label">🎂 Age</label>
                     <input type="number" name="age"
@@ -145,7 +142,6 @@
                     @enderror
                 </div>
 
-                <!-- Address -->
                 <div class="mb-4">
                     <label class="form-label">🏠 Address</label>
                     <input type="text" name="address"
@@ -156,7 +152,6 @@
                     @enderror
                 </div>
 
-                <!-- Submit -->
                 <div class="d-grid">
                     <button type="submit" class="btn btn-update btn-lg">
                         🔄 Update Student

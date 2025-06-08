@@ -116,7 +116,6 @@
         </a>
     </div>
 
-    <!-- Glass Styled Card -->
     <div class="card glass-card text-start rounded-4">
         <div class="card-body">
 

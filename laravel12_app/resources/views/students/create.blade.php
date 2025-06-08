@@ -29,7 +29,7 @@
         font-weight: 700;
     }
 
-    /* Neon glass style button - apply for Back and Save buttons */
+    
     .btn-neon {
         background-color: transparent;
         border: 2px solid #00ffff;
@@ -55,12 +55,12 @@
         outline: none;
     }
 
-    /* For button elements */
+    
     button.btn-neon {
         border: 2px solid #00ffff;
     }
 
-    /* Form inputs */
+   
     .form-control {
         background-color: #000;
         color: #fff;
@@ -89,8 +89,7 @@
     <div class="card glass-card rounded-4 px-4 py-4 text-light">
         <form action="{{ route('students.store') }}" method="POST" novalidate>
             @csrf
-
-            <!-- Name -->
+            
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">👤 Name</label>
                 <input type="text" name="name"
@@ -101,7 +100,7 @@
                 @enderror
             </div>
 
-            <!-- Email -->
+          
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">📧 Email</label>
                 <input type="email" name="email"
@@ -112,7 +111,7 @@
                 @enderror
             </div>
 
-            <!-- Phone -->
+           
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">📱 Phone</label>
                 <input type="text" name="phone"
@@ -123,7 +122,7 @@
                 @enderror
             </div>
 
-            <!-- Age -->
+           
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">🎂 Age</label>
                 <input type="number" name="age"
@@ -134,7 +133,7 @@
                 @enderror
             </div>
 
-            <!-- Address -->
+            
             <div class="mb-4">
                 <label class="form-label text-info fw-semibold">🏠 Address</label>
                 <input type="text" name="address"
@@ -145,7 +144,6 @@
                 @enderror
             </div>
 
-            <!-- Submit -->
             <div class="d-grid">
                 <button type="submit" class="btn-neon btn-lg fw-semibold">
                     💾 Save Student
