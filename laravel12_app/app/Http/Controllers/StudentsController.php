@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
-use Illuminate\Support\Facades\Auth;  // <-- Add this import
+use Illuminate\Support\Facades\Auth;  
 
 
 class StudentsController extends Controller
@@ -32,19 +32,30 @@ class StudentsController extends Controller
     return redirect()->route('students.index')->with('success', 'Student added successfully.');
 }
 
-    public function index()
-    {
-        // Show only students of logged-in user
-        $students = Student::where('user_id', Auth::id())
-                           ->orderByDesc('created_at')
-                           ->paginate(5);
+      public function index(Request $request)
+{
+    $search = $request->input('search');
 
-        return view("students.index", compact("students"));
-    }
+    $students = Student::when($search, function ($query, $search) {
+            return $query->where('user_id', Auth::id())
+                         ->where(function ($q) use ($search) {
+                             $q->where('name', 'like', "%{$search}%")
+                               ->orWhere('email', 'like', "%{$search}%")
+                               ->orWhere('phone', 'like', "%{$search}%");
+                         });
+        }, function ($query) {
+            return $query->where('user_id', Auth::id());
+        })
+        ->orderByDesc('created_at')
+        ->paginate(5)
+        ->withQueryString(); // keeps ?search= in pagination links
+
+    return view("students.index", compact("students", "search"));
+}
 
     public function show(Student $student)
     {
-        // Optionally, check if the student belongs to the logged-in user before showing
+        
 
         if ($student->user_id !== Auth::id()) {
             abort(403); // unauthorized access

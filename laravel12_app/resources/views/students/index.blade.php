@@ -35,6 +35,26 @@
         margin-bottom: 0.5rem;
     }
 
+    .neon-input {
+        background: rgba(0, 255, 255, 0.1);
+        border: 1.5px solid #00ffff;
+        color: #00ffff;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.25);
+    }
+
+    .neon-input::placeholder {
+        color: rgba(0, 255, 255, 0.5);
+    }
+
+    .neon-input:focus {
+        background: rgba(0, 255, 255, 0.15);
+        border-color: #00ffff;
+        box-shadow: 0 0 15px #00ffff;
+        color: #00ffff;
+    }
+
     /* Add Student Button */
     .btn-add-student {
         border: 2px solid #00ffff;
@@ -203,6 +223,14 @@
             ➕ Add Student
         </a>
     </div>
+
+    <form method="GET" action="{{ route('students.index') }}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control neon-input" placeholder="🔍 Search by name, email, or phone">
+        <button class="btn btn-outline-info" type="submit">Search</button>
+    </div>
+    </form>
+
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
