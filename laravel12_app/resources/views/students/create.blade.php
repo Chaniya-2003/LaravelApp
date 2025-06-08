@@ -29,22 +29,59 @@
         font-weight: 700;
     }
 
-    .btn-back {
-        border-color: #0ff;
-        color: #0ff;
+    /* Neon glass style button - apply for Back and Save buttons */
+    .btn-neon {
+        background-color: transparent;
+        border: 2px solid #00ffff;
+        color: #00ffff;
         font-weight: 600;
-        transition: background-color 0.3s ease;
+        padding: 0.5rem 1.6rem;
+        border-radius: 0.6rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        user-select: none;
     }
-    .btn-back:hover {
-        background-color: #0ff;
-        color: #000;
+
+    .btn-neon:hover,
+    .btn-neon:focus {
+        background-color: #00ffff;
+        color: #0f2027;
+        box-shadow: 0 0 20px #00ffff;
+        text-decoration: none;
+        outline: none;
+    }
+
+    /* For button elements */
+    button.btn-neon {
+        border: 2px solid #00ffff;
+    }
+
+    /* Form inputs */
+    .form-control {
+        background-color: #000;
+        color: #fff;
+        border: 2px solid #00ffff;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-control:focus {
+        border-color: #00ffff;
+        box-shadow: 0 0 10px #00ffff;
+        background-color: #000;
+        color: #00ffff;
+        outline: none;
     }
 </style>
 
 <div class="container py-5">
     <div class="page-header">
         <h2>➕ Add Student</h2>
-        <a href="{{ route('students.index') }}" class="btn btn-outline-info btn-back btn-sm">
+        <a href="{{ route('students.index') }}" class="btn-neon btn-back btn-sm">
             ⬅️ Back to List
         </a>
     </div>
@@ -57,7 +94,7 @@
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">👤 Name</label>
                 <input type="text" name="name"
-                    class="form-control bg-black text-white border-info @error('name') is-invalid @enderror"
+                    class="form-control @error('name') is-invalid @enderror"
                     value="{{ old('name') }}" placeholder="Enter full name">
                 @error('name')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -68,7 +105,7 @@
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">📧 Email</label>
                 <input type="email" name="email"
-                    class="form-control bg-black text-white border-info @error('email') is-invalid @enderror"
+                    class="form-control @error('email') is-invalid @enderror"
                     value="{{ old('email') }}" placeholder="Enter email address">
                 @error('email')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -79,7 +116,7 @@
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">📱 Phone</label>
                 <input type="text" name="phone"
-                    class="form-control bg-black text-white border-info @error('phone') is-invalid @enderror"
+                    class="form-control @error('phone') is-invalid @enderror"
                     value="{{ old('phone') }}" placeholder="Enter phone number">
                 @error('phone')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -90,7 +127,7 @@
             <div class="mb-3">
                 <label class="form-label text-info fw-semibold">🎂 Age</label>
                 <input type="number" name="age"
-                    class="form-control bg-black text-white border-info @error('age') is-invalid @enderror"
+                    class="form-control @error('age') is-invalid @enderror"
                     value="{{ old('age') }}" placeholder="Enter age">
                 @error('age')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -101,7 +138,7 @@
             <div class="mb-4">
                 <label class="form-label text-info fw-semibold">🏠 Address</label>
                 <input type="text" name="address"
-                    class="form-control bg-black text-white border-info @error('address') is-invalid @enderror"
+                    class="form-control @error('address') is-invalid @enderror"
                     value="{{ old('address') }}" placeholder="Enter address">
                 @error('address')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -110,7 +147,7 @@
 
             <!-- Submit -->
             <div class="d-grid">
-                <button type="submit" class="btn btn-info btn-lg fw-semibold">
+                <button type="submit" class="btn-neon btn-lg fw-semibold">
                     💾 Save Student
                 </button>
             </div>

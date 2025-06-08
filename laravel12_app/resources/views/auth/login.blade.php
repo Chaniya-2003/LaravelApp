@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Login')
+
 @section('content')
 <style>
     body {
@@ -8,64 +10,79 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #00ffff;
     }
 
     .glass-card {
-        backdrop-filter: blur(10px);
-        background: rgba(15, 15, 15, 0.8);
-        border: 1px solid rgba(0, 255, 255, 0.2);
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        background: rgba(15, 15, 15, 0.75);
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
         border-radius: 1rem;
-        padding: 2rem 3rem;
+        padding: 2.5rem 3rem;
         max-width: 500px;
         width: 100%;
-        color: #ffffff;
     }
 
     .glass-card h3 {
-        text-shadow: 0 0 6px rgba(0, 255, 0, 0.6);
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
     }
 
     label {
         color: #00ffff;
-        font-weight: 500;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
     }
 
     .form-control {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.7);
         color: #ffffff;
         border: 1px solid #00ffff;
+        border-radius: 0.5rem;
     }
 
     .form-control:focus {
         border-color: #00ffff;
-        box-shadow: 0 0 0 0.2rem rgba(0, 255, 255, 0.25);
+        box-shadow: 0 0 10px #00ffff;
     }
 
-    .btn-success {
-        background-color: #00ffcc;
-        border: none;
+    .btn-login {
+        background-color: transparent;
+        border: 2px solid #00ffff;
+        color: #00ffff;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.6rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    }
+
+    .btn-login:hover {
+        background-color: #00ffff;
         color: #0f2027;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-success:hover {
-        background-color: #00e6b8;
+        box-shadow: 0 0 20px #00ffff;
     }
 
     .form-check-label {
-        color: #ccc;
+        color: #a0f0f0;
+        font-weight: 500;
     }
 
     .invalid-feedback {
         color: #ff5c5c;
     }
+
+    .text-center h3 span {
+        font-size: 1.5rem;
+    }
 </style>
 
 <div class="glass-card text-center">
-    <h3 class="text-success mb-4">🔒 Login</h3>
+    <h3><span>🔐</span> Welcome Back</h3>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -106,7 +123,7 @@
 
         <!-- Submit -->
         <div class="d-grid">
-            <button type="submit" class="btn btn-success btn-lg">➡️ Login</button>
+            <button type="submit" class="btn btn-login">➡️ Login</button>
         </div>
     </form>
 </div>

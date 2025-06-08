@@ -4,6 +4,8 @@
 <style>
     body {
         background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #00ffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -12,9 +14,9 @@
     }
 
     .glass-card {
-        backdrop-filter: blur(12px);
-        background: rgba(15, 15, 15, 0.8);
-        border: 1px solid rgba(0, 255, 255, 0.25);
+        backdrop-filter: blur(15px);
+        background: rgba(15, 15, 15, 0.75);
+        border: 1px solid rgba(0, 255, 255, 0.3);
         box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
         border-radius: 1rem;
         padding: 3rem 4rem;
@@ -28,64 +30,7 @@
         font-weight: 700;
         margin-bottom: 2rem;
         color: #00ffff;
-        text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-    }
-
-    .btn-primary {
-        background-color: #00ffff;
-        border: none;
-        color: #0f2027;
-        font-weight: 600;
-        padding: 0.6rem 1.6rem;
-        border-radius: 0.5rem;
-        transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover {
-        background-color: #00cccc;
-    }
-
-    .btn-success {
-        background-color: #28a745;
-        border: none;
-        font-weight: 600;
-        padding: 0.6rem 1.6rem;
-        border-radius: 0.5rem;
-        transition: background-color 0.3s ease;
-        color: #fff;
-    }
-    .btn-success:hover {
-        background-color: #218838;
-    }
-
-    .btn-info {
-        background-color: transparent;
-        border: 2px solid #00ffff;
-        color: #00ffff;
-        font-weight: 600;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        transition: all 0.3s ease;
-    }
-    .btn-info:hover {
-        background-color: #00ffff;
-        color: #0f2027;
-    }
-
-    .btn-danger {
-        background-color: #ff4d4d;
-        border: none;
-        font-weight: 600;
-        padding: 0.5rem 1.5rem;
-        border-radius: 0.5rem;
-        transition: background-color 0.3s ease;
-        color: #fff;
-    }
-    .btn-danger:hover {
-        background-color: #cc3a3a;
-    }
-
-    .btn + .btn {
-        margin-left: 1rem;
+        text-shadow: 0 0 12px rgba(0, 255, 255, 0.7);
     }
 
     p {
@@ -95,6 +40,53 @@
         text-shadow: 0 0 6px rgba(0, 255, 255, 0.5);
     }
 
+    /* Neon glass style button for Login and Register */
+    .btn-neon {
+        background-color: transparent;
+        border: 2px solid #00ffff;
+        color: #00ffff;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.6rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .btn-neon:hover {
+        background-color: #00ffff;
+        color: #0f2027;
+        box-shadow: 0 0 20px #00ffff;
+        text-decoration: none;
+    }
+
+    /* Logout button style */
+    .btn-danger {
+        background-color: #ff4d4d;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.6rem;
+        border: none;
+        box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-danger:hover {
+        background-color: #cc3a3a;
+        box-shadow: 0 0 20px #cc3a3a;
+    }
+
+    .btn + .btn, .btn + form .btn, form .btn + .btn {
+        margin-left: 1rem;
+    }
+
+    form.d-inline {
+        display: inline;
+    }
 </style>
 
 <div class="glass-card">
@@ -102,7 +94,7 @@
 
     @auth
         <p>You are logged in as <strong>{{ auth()->user()->name }}</strong>.</p>
-        <a href="{{ route('students.index') }}" class="btn btn-info">Go to Dashboard</a>
+        <a href="{{ route('students.index') }}" class="btn btn-neon">Go to Dashboard</a>
 
         <form method="POST" action="{{ route('logout') }}" class="d-inline ms-3">
             @csrf
@@ -111,9 +103,8 @@
     @endauth
 
     @guest
-        
-        <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
-        <a href="{{ route('register') }}" class="btn btn-success">Register</a>
+        <a href="{{ route('login') }}" class="btn btn-neon">Login</a>
+        <a href="{{ route('register') }}" class="btn btn-neon">Register</a>
     @endguest
 </div>
 @endsection

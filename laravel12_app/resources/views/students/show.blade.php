@@ -34,21 +34,26 @@
         color: #00ffff !important;
     }
 
-    /* Back button */
-    .btn-outline-info {
-        border-color: #00ffff !important;
-        color: #00ffff !important;
+    /* Neon glass style button - for Back to List */
+    .btn-neon {
+        background-color: transparent;
+        border: 2px solid #00ffff;
+        color: #00ffff;
         font-weight: 600;
         padding: 0.35rem 1.2rem;
         border-radius: 0.5rem;
         box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
         transition: all 0.3s ease;
         user-select: none;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
     }
-    .btn-outline-info:hover,
-    .btn-outline-info:focus {
-        background-color: #00ffff !important;
-        color: #0f2027 !important;
+    .btn-neon:hover,
+    .btn-neon:focus {
+        background-color: #00ffff;
+        color: #0f2027;
         box-shadow: 0 0 15px #00ffff;
         outline: none;
         text-decoration: none;
@@ -94,7 +99,7 @@
             margin-left: 1rem;
             margin-bottom: 0.75rem;
         }
-        .btn-outline-info {
+        .btn-neon {
             font-size: 0.9rem;
             padding: 0.3rem 1rem;
         }
@@ -106,7 +111,7 @@
         <h2 class="text-info fw-bold">
             <i class="bi bi-person-circle me-2 fs-2"></i>Student Details
         </h2>
-        <a href="{{ route('students.index') }}" class="btn btn-outline-info btn-sm mt-2">
+        <a href="{{ route('students.index') }}" class="btn-neon btn-sm mt-2">
             ← Back to List
         </a>
     </div>
