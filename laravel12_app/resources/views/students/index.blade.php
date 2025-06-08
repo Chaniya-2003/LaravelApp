@@ -260,8 +260,8 @@
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->phone }}</td>
-                            <td>{{ $student->age ?? 'N/A' }}</td>
-                            <td>{{ $student->address ?? 'N/A' }}</td>
+                            <td>{{ $student->age  }}</td>
+                            <td>{{ $student->address }}</td>
                             <td class="text-center">
                                 <a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-warning btn-sm me-1" title="View Student">
                                     👁 View
