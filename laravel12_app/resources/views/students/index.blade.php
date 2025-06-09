@@ -19,7 +19,6 @@
         padding: 1.5rem;
     }
 
-    /* Heading Section */
     .page-header {
         margin-bottom: 2rem;
         display: flex;
@@ -55,7 +54,6 @@
         color: #00ffff;
     }
 
-    /* Add Student Button */
     .btn-add-student {
         border: 2px solid #00ffff;
         color: #00ffff;
@@ -73,7 +71,6 @@
         text-decoration: none;
     }
 
-    
     .alert-success {
         background: rgba(0, 255, 255, 0.15);
         border: 1px solid #00ffff;
@@ -134,7 +131,6 @@
         white-space: nowrap;
     }
 
-  
     .btn-outline-info, 
     .btn-outline-warning, 
     .btn-outline-danger {
@@ -177,7 +173,6 @@
         box-shadow: 0 0 15px #ff4d4d;
     }
 
-    
     .pagination {
         justify-content: flex-end !important;
         margin-top: 1.5rem;
@@ -198,7 +193,6 @@
         border-color: #00ffff;
         box-shadow: 0 0 10px #00ffff;
     }
-
 
     @media (max-width: 576px) {
         .page-header {
@@ -225,12 +219,11 @@
     </div>
 
     <form method="GET" action="{{ route('students.index') }}" class="mb-4">
-    <div class="input-group">
-        <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control neon-input" placeholder="🔍 Search by name, email, or phone">
-        <button class="btn btn-outline-info" type="submit">Search</button>
-    </div>
+        <div class="input-group">
+            <input type="text" name="search" value="{{ $search ?? '' }}" class="form-control neon-input" placeholder="🔍 Search by name, email, or phone">
+            <button class="btn btn-outline-info" type="submit">Search</button>
+        </div>
     </form>
-
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -260,7 +253,7 @@
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->phone }}</td>
-                            <td>{{ $student->age  }}</td>
+                            <td>{{ $student->age }}</td>
                             <td>{{ $student->address }}</td>
                             <td class="text-center">
                                 <a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-warning btn-sm me-1" title="View Student">
@@ -269,15 +262,17 @@
                                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-info btn-sm me-1" title="Edit Student">
                                     ✏️ Edit
                                 </a>
-                                <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-outline-danger btn-sm"
-                                        onclick="return confirm('Are you sure you want to delete this student?')"
-                                        title="Delete Student">
-                                        🗑 Delete
-                                    </button>
-                                </form>
+                                @if(auth()->user()->isAdmin())
+                                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-outline-danger btn-sm"
+                                            onclick="return confirm('Are you sure you want to delete this student?')"
+                                            title="Delete Student">
+                                            🗑 Delete
+                                        </button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @empty
